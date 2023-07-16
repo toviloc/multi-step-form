@@ -1,0 +1,146 @@
+.input {
+  position: absolute;
+  left: -9999px;
+}
+
+.input:focus + .radio-method,
+.input:hover + .radio-method {
+  background: #fff;
+  border: 1px solid #483eff;
+  box-shadow: none;
+}
+
+.input:checked + .radio-method {
+  background: #f8f9ff;
+  border: 1px solid #483eff;
+  box-shadow: none;
+}
+
+.courier,
+.radio-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input:focus + .radio-method,
+.input:hover + .radio-method {
+  color: #0b46ae;
+}
+
+.input:checked + .radio-method {
+  color: #0b46ae;
+}
+
+/* --------------------------------- */
+
+.card_container,
+.card_body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card_body {
+  gap: 39px;
+}
+
+.selectbox_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.selectbox_title {
+  letter-spacing: 0.17px;
+  line-height: 1.2;
+}
+.selectbox_icon {
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+}
+.selectbox_description {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+}
+
+@media (max-width: 900px) {
+  .input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .input:focus + .radio-method,
+  .input:hover + .radio-method {
+    background: rgba(0, 86, 244, 0.08);
+    /* color: #0033a0; */
+    border: 1px solid #0033a0;
+    box-shadow: none;
+  }
+
+  .input:checked + .radio-method {
+    background: rgba(0, 86, 244, 0.08);
+    /* color: #0033a0; */
+    border: 1px solid #0b46ae;
+    box-shadow: none;
+  }
+
+  .courier,
+  .radio-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input:focus + .radio-method,
+  .input:hover + .radio-method {
+    color: #0b46ae;
+  }
+
+  .input:checked + .radio-method {
+    color: #ffffff;
+  }
+
+  /* --------------------------------- */
+
+  .selectbox_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .selectbox_title {
+    letter-spacing: 0.17px;
+    line-height: 1.2;
+  }
+  .selectbox_icon {
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+  }
+  .selectbox_description {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.43;
+    letter-spacing: 0.1px;
+  }
+}
+
+@media (max-width: 768px) {
+  .radio-method {
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+    align-items: unset;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1180px) {
+}

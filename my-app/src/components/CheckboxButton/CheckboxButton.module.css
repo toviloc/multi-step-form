@@ -1,0 +1,103 @@
+.card_container,
+.card_body {
+  padding: 0 !important;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
+}
+
+.MuiCardContent-root:last-child {
+  padding-bottom: 0;
+}
+
+.card_body {
+  gap: 8px;
+}
+.selectbox_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.selectbox_title {
+  letter-spacing: 0.17px;
+  line-height: 1.2;
+}
+.selectbox_icon {
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+}
+.selectbox_description {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.43;
+  letter-spacing: 0.1px;
+}
+
+.checkbox-methods {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input:focus + .checkbox-methods,
+.checkbox-methods:hover {
+  background: #fff;
+  border: 1px solid #483eff;
+  box-shadow: none;
+}
+
+.input:checked + .checkbox-methods {
+  background: #f8f9ff;
+  border: 1px solid #483eff;
+  box-shadow: none;
+}
+
+.input:focus + .checkbox-methods,
+.input:hover + .checkbox-methods {
+  color: #0b46ae;
+}
+
+.input:checked + .checkbox-methods {
+  color: #ffffff;
+}
+
+.checkboxContainer {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkedContainer,
+.checkedContainer:hover {
+  background: #f8f9ff;
+  border: 1px solid #483eff;
+  box-shadow: none;
+}
+
+.unCheckedContainer {
+  background-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 50%;
+  }
+}
+
+/* ToDo! Remove duplicate css (ex: this rule may be present in AddressInput and  PackageDetails styles) */
+@media (max-width: 768px) {
+  .checkbox-method {
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+    align-items: unset;
+  }
+}
+
+@media (max-width: 1180px) {
+}
