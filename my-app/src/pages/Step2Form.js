@@ -114,8 +114,7 @@ const Step2Form = () => {
     setSelectedValue(JSON.parse(evt.target.value));
     console.log(JSON.parse(evt.target.value));
 
-    const newState = { ...globalState };
-    newState["optionSelected"] = selectedValue;
+    const newState = { ...globalState, selectedValue };
     newState["isMonthly"] = isMonthly;
     setGlobalState(newState);
   };
@@ -132,7 +131,7 @@ const Step2Form = () => {
     setGlobalState({
       ...globalState,
       isMonthly,
-      optionSelected: selectedValue,
+      selectedValue,
     });
   }, []);
   console.log(globalState);

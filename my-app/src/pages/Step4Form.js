@@ -6,7 +6,6 @@ import { GlobalStateContext } from "@/globalContext/globalContext";
 const Step4Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
   console.log(globalState);
-  const handleGetGlobalData = () => {};
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
@@ -19,19 +18,19 @@ const Step4Form = () => {
         <div className={style.optionPayContainer}>
           <div>
             <Typography variant="body1">
-              {globalState.optionSelected.title}
+              {/* {globalState.selectedValue.title} */}
             </Typography>
             <Typography variant="body1">change</Typography>
           </div>
           <div>
             <Typography variant="body1">
-              {globalState.optionSelected.membership}
+              {/* {globalState.selectedValue.membership} */}
             </Typography>
           </div>
         </div>
         <hr />
-        {globalState.addonValue.map((item) => (
-          <div className={style.totalPayContainer}>
+        {/* {globalState.addonValue.map((item) => (
+          <div className={style.totalPayContainer} key={item.title}>
             <div>
               <Typography variant="body1">{item.title}</Typography>
             </div>
@@ -39,7 +38,7 @@ const Step4Form = () => {
               <Typography variant="body1">{item.membership}</Typography>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
       <div className={style.totalPayContainer}>
         <div>

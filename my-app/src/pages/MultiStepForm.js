@@ -11,7 +11,6 @@ import Step1Form from "./Step1Form";
 import Step2Form from "./Step2Form";
 import Step3Form from "./Step3Form";
 import Step4Form from "./Step4Form";
-import Step5Form from "./ThankForm";
 import ThankForm from "./ThankForm";
 
 const steps = [
@@ -85,7 +84,7 @@ const MultiStepForm = () => {
             <StepLabel>
               <Typography
                 variant="subtitle1"
-                style={{ color: "#ABBCFF", ["font-size"]: "12px" }}
+                style={{ color: "#ABBCFF", fontSize: "12px" }}
               >
                 STEP {e.step}
               </Typography>
