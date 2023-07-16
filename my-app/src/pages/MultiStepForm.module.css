@@ -1,0 +1,119 @@
+.stepFormContainer {
+  display: flex;
+}
+.MuiStepConnector-root {
+  flex: 0;
+}
+.stepperContainer {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 10px;
+  background-image: url("../Icons/Oval.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 568px;
+  gap: 31px;
+  padding: 40px 0 0 32px;
+}
+.formerContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  gap: 35px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.textField {
+  width: 100%;
+}
+.radioContainer {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+}
+.switchContainer {
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f8f9ff;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.selected {
+  color: #022959;
+}
+.unselected {
+  color: #9699aa;
+}
+
+.payListContainer {
+  padding: 16px 24px 24px 24px;
+  width: 100%;
+  border-radius: 8px;
+  background: #f8f9ff;
+}
+.optionPayContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.totalPayContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.pickContainer {
+  width: 100%;
+  display: flex;
+  border-radius: 8px;
+  border: 1px #022959;
+  background-color: #9699aa;
+}
+
+.checkboxCardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+.thankFormContainer {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.stepper {
+  color: #fff;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
