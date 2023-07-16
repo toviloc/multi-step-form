@@ -1,12 +1,13 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import style from "@/pages/MultiStepForm.module.css";
+import CheckIcon from "@/Icons/Check.svg";
 
 const ThankForm = () => {
   return (
     <div className={style.thankFormContainer}>
       <div>
-        <img src="@/Icons/Check.svg" alt="Thank you" />
+        <img src={CheckIcon.src} alt="Thank you" />
       </div>
       <div>
         <Typography variant="h4">Thank you!</Typography>

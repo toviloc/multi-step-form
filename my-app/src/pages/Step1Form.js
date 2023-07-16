@@ -32,7 +32,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="name"
-            defaultValue={globalState.name}
+            // defaultValue={globalState.name}
           />
         </div>
         <div>
@@ -44,7 +44,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="email"
-            defaultValue={globalState.email}
+            // defaultValue={globalState.email}
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="phone"
-            defaultValue={globalState.phone}
+            // defaultValue={globalState.phone}
           />
         </div>
       </div>
