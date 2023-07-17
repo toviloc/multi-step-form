@@ -91,9 +91,10 @@ const typography = {
   h4: {
     fontFamily: "Ubuntu",
     fontSize: "2rem",
-    fontWeight: "500",
+    fontWeight: "700",
     letterSpacing: "0.015rem",
     lineHeight: "2.5rem",
+    color: "#022959",
   },
   h5: {
     fontFamily: "Ubuntu",
@@ -105,23 +106,26 @@ const typography = {
   h6: {
     fontFamily: "Ubuntu",
     fontSize: "1.25rem",
-    fontWeight: "500",
+    fontWeight: "700",
     letterSpacing: "0.009375rem",
     lineHeight: "2rem",
+    color: "#483EFF",
   },
   subtitle1: {
     fontFamily: "Ubuntu",
     fontSize: "1rem",
-    fontWeight: "600",
+    fontWeight: "500",
     letterSpacing: "0.009375rem",
     lineHeight: "1.25rem",
+    color: "#022959",
   },
   subtitle2: {
     fontFamily: "Ubuntu",
     fontSize: "0.875rem",
-    fontWeight: "500",
+    fontWeight: "400",
     letterSpacing: "0.00625rem",
     lineHeight: "1.25rem",
+    color: "#022959",
   },
   body1: {
     fontFamily: "Ubuntu",
@@ -129,6 +133,7 @@ const typography = {
     fontWeight: "400",
     letterSpacing: "0.0275rem",
     lineHeight: "1.5rem",
+    color: "#9699AA",
   },
   link1: {
     fontFamily: "Ubuntu",
@@ -144,6 +149,7 @@ const typography = {
     fontWeight: "400",
     letterSpacing: "0.015625rem",
     lineHeight: "1.25rem",
+    color: "#9699AA",
   },
   caption: {
     fontFamily: "Ubuntu",

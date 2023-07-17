@@ -106,23 +106,40 @@ const MultiStepForm = () => {
             {activeStep === 1 && <Step2Form />}
             {activeStep === 2 && <Step3Form />}
             {activeStep === 3 && <Step4Form />}
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-              >
-                Go back
-              </Button>
-              {/* <Box sx={{ flex: "1 1 auto" }} /> */}
-              {activeStep === 3 ? (
-                <Button onClick={handleComplete}>Confirm</Button>
-              ) : (
-                <Button onClick={handleNext} sx={{ mr: 1 }}>
-                  Next Step
-                </Button>
-              )}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                pt: 2,
+                justifyContent: "space-between",
+                paddingBottom: "32px",
+                width: "70%",
+              }}
+            >
+              <div>
+                {activeStep > 0 ? (
+                  <Button
+                    className={style.backButton}
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                  >
+                    Go back
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div>
+                {activeStep === 3 ? (
+                  <Button className={style.stepButton} onClick={handleComplete}>
+                    Confirm
+                  </Button>
+                ) : (
+                  <Button className={style.stepButton} onClick={handleNext}>
+                    Next Step
+                  </Button>
+                )}
+              </div>
             </Box>
           </React.Fragment>
         )}

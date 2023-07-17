@@ -65,6 +65,7 @@
   font-weight: normal;
   line-height: 1.43;
   letter-spacing: 0.1px;
+  height: 60px;
 }
 
 @media (max-width: 900px) {

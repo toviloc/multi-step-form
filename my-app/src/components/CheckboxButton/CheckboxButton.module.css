@@ -37,10 +37,11 @@
 }
 
 .checkbox-methods {
-  padding: 10px;
+  padding: 18px 24px 18px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  justify-content: center;
 }
 
 .input:focus + .checkbox-methods,

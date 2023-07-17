@@ -13,21 +13,21 @@ const monthlyOption = [
   {
     icon: ArcadeIcon,
     title: "Arcade",
-    membership: "$9/mo",
+    packagePrice: "$9/mo",
     price: 9,
     freeTrial: "",
   },
   {
     icon: AdvancedIcon,
     title: "Advanced",
-    membership: "$12/mo",
+    packagePrice: "$12/mo",
     price: 12,
     freeTrial: "",
   },
   {
     icon: ProIcon,
     title: "Pro",
-    membership: "$15/mo",
+    packagePrice: "$15/mo",
     price: 15,
     freeTrial: "",
   },
@@ -37,21 +37,21 @@ const yearlyOption = [
   {
     icon: ArcadeIcon,
     title: "Arcade",
-    membership: "$90/yr",
+    packagePrice: "$90/yr",
     price: 90,
     freeTrial: "2 months free",
   },
   {
     icon: AdvancedIcon,
     title: "Advanced",
-    membership: "$120/yr",
+    packagePrice: "$120/yr",
     price: 120,
     freeTrial: "2 months free",
   },
   {
     icon: ProIcon,
     title: "Pro",
-    membership: "$150/yr",
+    packagePrice: "$150/yr",
     price: 150,
     freeTrial: "2 months free",
   },
@@ -112,11 +112,6 @@ const Step2Form = () => {
   };
   const handleClick = (evt) => {
     setSelectedValue(JSON.parse(evt.target.value));
-    console.log(JSON.parse(evt.target.value));
-
-    const newState = { ...globalState, selectedValue };
-    newState["isMonthly"] = isMonthly;
-    setGlobalState(newState);
   };
 
   useEffect(() => {
@@ -133,14 +128,14 @@ const Step2Form = () => {
       isMonthly,
       selectedValue,
     });
-  }, []);
+  }, [selectedValue]);
   console.log(globalState);
 
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
         <Typography variant="h4">Select your plan</Typography>
-        <Typography variant="body2">
+        <Typography variant="body1">
           You have the option of monthly or yearly billing.
         </Typography>
       </div>

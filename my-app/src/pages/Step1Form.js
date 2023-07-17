@@ -18,7 +18,7 @@ const Step1Form = () => {
     <div className={style.subFormContainer}>
       <div className={style.title}>
         <Typography variant="h4">Personal info</Typography>
-        <Typography variant="body2">
+        <Typography variant="body1">
           Please provide your name, email address, and phone number.
         </Typography>
       </div>
@@ -26,37 +26,40 @@ const Step1Form = () => {
         <div>
           <Typography variant="subtitle2">Name</Typography>
           <TextField
+            placeholder="e.g. Stephen King"
             className={style.textField}
             size="small"
             id="outlined-basic"
             variant="outlined"
             onChange={handleChange}
             name="name"
-            // defaultValue={globalState.name}
+            defaultValue={globalState.name}
           />
         </div>
         <div>
           <Typography variant="subtitle2">Email Address</Typography>
           <TextField
+            placeholder="e.g. stephenking@lorem.com"
             className={style.textField}
             size="small"
             id="outlined-basic"
             variant="outlined"
             onChange={handleChange}
             name="email"
-            // defaultValue={globalState.email}
+            defaultValue={globalState.email}
           />
         </div>
         <div>
           <Typography variant="subtitle2">Phone Number</Typography>
           <TextField
+            placeholder="e.g. +1 234 567 890"
             className={style.textField}
             size="small"
             id="outlined-basic"
             variant="outlined"
             onChange={handleChange}
             name="phone"
-            // defaultValue={globalState.phone}
+            defaultValue={globalState.phone}
           />
         </div>
       </div>
