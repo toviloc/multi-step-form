@@ -232,12 +232,12 @@
 
   .formerContainer {
     width: 100%;
-    height: 93%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    top: 7%;
+    top: 10%;
     position: absolute;
     margin-top: 0;
   }
@@ -247,6 +247,7 @@
     background-color: #fff;
     width: 92%;
     padding: 4%;
+    margin-top: 5%;
   }
 
   .stepper,
