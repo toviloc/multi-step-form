@@ -100,13 +100,19 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 
 const Step2Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
-  if (globalState.isMonthly === undefined) {
-    globalState.isMonthly = true;
+  let defaultIsMonthlyValue = true;
+  let defaultSelectedValue = monthlyOption[0];
+  if (globalState !== undefined) {
+    if (globalState.isMonthly !== undefined) {
+      defaultIsMonthlyValue = globalState.isMonthly;
+    }
+    if (globalState.selectedValue !== undefined) {
+      defaultSelectedValue = globalState.selectedValue;
+    }
   }
-  const [isMonthly, setIsMonthly] = useState(globalState.isMonthly);
-  const [selectedValue, setSelectedValue] = useState(
-    globalState.selectedValue || monthlyOption[0]
-  );
+
+  const [isMonthly, setIsMonthly] = useState(defaultIsMonthlyValue);
+  const [selectedValue, setSelectedValue] = useState(defaultSelectedValue);
   const [selectedOptionMY, setSelectedOptionMY] = useState(monthlyOption);
 
   const handleSwitch = () => {
@@ -160,7 +166,7 @@ const Step2Form = () => {
             Monthly
           </Typography>
           <AntSwitch
-            checked={!globalState.isMonthly}
+            checked={!defaultIsMonthlyValue}
             onClick={() => handleSwitch()}
           />
           <Typography

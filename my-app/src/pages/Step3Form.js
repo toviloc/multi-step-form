@@ -48,8 +48,13 @@ const YearlyPickValue = [
 
 const Step3Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
+  let defaultAddOnValue = [];
+  if (globalState !== undefined && globalState.addonValue !== undefined) {
+    defaultAddOnValue = globalState.addonValue;
+  }
+  console.log(defaultAddOnValue);
   const [selectedValueMY, setSelectedValueMY] = useState([]);
-  const [addonValue, setAddonValue] = useState(globalState.addonValue || []);
+  const [addonValue, setAddonValue] = useState(defaultAddOnValue);
 
   const handleChange = (evt) => {
     const newArr = addonValue;
