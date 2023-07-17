@@ -5,10 +5,14 @@ import { GlobalStateContext } from "@/globalContext/globalContext";
 
 const Step4Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
-  let sum = globalState.selectedValue.price;
-  globalState.addonValue.forEach((element) => {
-    sum += element.price;
-  });
+  let sum = 0;
+  if (globalState !== undefined) {
+    sum = globalState.selectedValue.price;
+    globalState.addonValue.forEach((element) => {
+      sum += element.price;
+    });
+  }
+  console.log(globalState);
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
@@ -17,73 +21,79 @@ const Step4Form = () => {
           Double-check everything looks OK before confirming.
         </Typography>
       </div>
-      <div className={style.payListContainer}>
-        <div className={style.optionPayContainer}>
-          <div>
-            <Typography variant="subtitle1">
-              {globalState.selectedValue.title}{" "}
-              {globalState.isMonthly ? "(Monthly)" : "(Yearly)"}
-            </Typography>
-            <Link className={style.changeLinkContainer}>change</Link>
-          </div>
-          <div>
-            <label
-              style={{
-                color: "#022959",
-                fontFamily: "Ubuntu",
-                fontFamily: "16px",
-                fontWeight: "700",
-              }}
-            >
-              {globalState.selectedValue.packagePrice}
-            </label>
-          </div>
-        </div>
-        <hr />
-        {globalState.addonValue.map((item) => (
-          <div
-            className={style.totalPayContainer}
-            key={`${item.title}${item.packagePrice}`}
-          >
-            <div>
-              <Typography variant="body1">{item.title}</Typography>
+      {globalState !== undefined ? (
+        <>
+          <div className={style.payListContainer}>
+            <div className={style.optionPayContainer}>
+              <div>
+                <Typography variant="subtitle1">
+                  {globalState.selectedValue.title}{" "}
+                  {globalState.isMonthly ? "(Monthly)" : "(Yearly)"}
+                </Typography>
+                <Link className={style.changeLinkContainer}>change</Link>
+              </div>
+              <div>
+                <label
+                  style={{
+                    color: "#022959",
+                    fontFamily: "Ubuntu",
+                    fontFamily: "16px",
+                    fontWeight: "700",
+                  }}
+                >
+                  {globalState.selectedValue.packagePrice}
+                </label>
+              </div>
             </div>
-            <div>
-              <label
-                style={{
-                  color: "#022959",
-                  fontFamily: "Ubuntu",
-                  fontFamily: "14px",
-                  fontWeight: "400",
-                }}
+            <hr />
+            {globalState.addonValue.map((item) => (
+              <div
+                className={style.totalPayContainer}
+                key={`${item.title}${item.packagePrice}`}
               >
-                {item.packagePrice}
-              </label>
-            </div>
+                <div>
+                  <Typography variant="body1">{item.title}</Typography>
+                </div>
+                <div>
+                  <label
+                    style={{
+                      color: "#022959",
+                      fontFamily: "Ubuntu",
+                      fontFamily: "14px",
+                      fontWeight: "400",
+                    }}
+                  >
+                    {item.packagePrice}
+                  </label>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className={style.totalPayContainer}>
-        {globalState.isMonthly ? (
-          <>
-            <div style={{ paddingLeft: "24px" }}>
-              <Typography variant="body1">Total (per month)</Typography>
-            </div>
-            <div>
-              <Typography variant="h6">${sum}/mo</Typography>
-            </div>
-          </>
-        ) : (
-          <>
-            <div style={{ paddingLeft: "24px" }}>
-              <Typography variant="body1">Total (per year)</Typography>
-            </div>
-            <div>
-              <Typography variant="h6">${sum}/yr</Typography>
-            </div>
-          </>
-        )}
-      </div>
+          <div className={style.totalPayContainer}>
+            {globalState.isMonthly ? (
+              <>
+                <div style={{ paddingLeft: "24px" }}>
+                  <Typography variant="body1">Total (per month)</Typography>
+                </div>
+                <div>
+                  <Typography variant="h6">${sum}/mo</Typography>
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{ paddingLeft: "24px" }}>
+                  <Typography variant="body1">Total (per year)</Typography>
+                </div>
+                <div>
+                  <Typography variant="h6">${sum}/yr</Typography>
+                </div>
+              </>
+            )}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

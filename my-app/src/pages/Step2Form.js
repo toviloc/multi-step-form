@@ -100,20 +100,22 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 
 const Step2Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
-
-  const [isMonthly, setIsMonthly] = useState(true);
-  const [selectedValue, setSelectedValue] = useState(monthlyOption[0]);
+  if (globalState.isMonthly === undefined) {
+    globalState.isMonthly = true;
+  }
+  const [isMonthly, setIsMonthly] = useState(globalState.isMonthly);
+  const [selectedValue, setSelectedValue] = useState(
+    globalState.selectedValue || monthlyOption[0]
+  );
   const [selectedOptionMY, setSelectedOptionMY] = useState(monthlyOption);
 
   const handleSwitch = () => {
     setIsMonthly(!isMonthly);
-
     setGlobalState({ ...globalState, isMonthly: !isMonthly });
   };
   const handleClick = (evt) => {
     setSelectedValue(JSON.parse(evt.target.value));
   };
-
   useEffect(() => {
     if (isMonthly === true) {
       setSelectedOptionMY(monthlyOption);
@@ -129,7 +131,7 @@ const Step2Form = () => {
       selectedValue,
     });
   }, [selectedValue]);
-
+  console.log(globalState);
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
@@ -153,14 +155,17 @@ const Step2Form = () => {
         <div className={style.switchContainer}>
           <Typography
             variant="subtitle1"
-            className={isMonthly ? style.selected : style.unselected}
+            className={isMonthly === true ? style.selected : style.unselected}
           >
             Monthly
           </Typography>
-          <AntSwitch onClick={() => handleSwitch()} />
+          <AntSwitch
+            checked={!globalState.isMonthly}
+            onClick={() => handleSwitch()}
+          />
           <Typography
             variant="subtitle1"
-            className={!isMonthly ? style.selected : style.unselected}
+            className={isMonthly === false ? style.selected : style.unselected}
           >
             Yearly
           </Typography>

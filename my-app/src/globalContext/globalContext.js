@@ -7,13 +7,7 @@ const initialState = {
   errors: {},
   name: "",
   phone: "",
-  selectedValue: {
-    freeTrial: "",
-    icon: {},
-    packagePrice: "",
-    price: 0,
-    title: "",
-  },
+  selectedValue: {},
   isMonthly: true,
 };
 

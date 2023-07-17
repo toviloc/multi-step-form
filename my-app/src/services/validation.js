@@ -1,14 +1,14 @@
-const capitalizeBySentence = str => {
+const capitalizeBySentence = (str) => {
   const sentences = str.split(". ");
 
-  const revArray = sentences.map(sentence => {
+  const revArray = sentences.map((sentence) => {
     return sentence.charAt(0).toUpperCase() + sentence.slice(1);
   });
 
   return revArray.join(". ");
 };
 
-const buildMessagesByFieldsFromJoiReports = joiReports => {
+const buildMessagesByFieldsFromJoiReports = (joiReports) => {
   const messagesByFields = {};
 
   joiReports.forEach(({ context, path, message }) => {
@@ -27,7 +27,6 @@ const buildMessagesByFieldsFromJoiReports = joiReports => {
 };
 
 export default ({ form, schema }) => {
-
   const { error } = schema.validate(form, {
     abortEarly: false,
     allowUnknown: true,
@@ -37,7 +36,7 @@ export default ({ form, schema }) => {
     return {};
   }
 
-	console.log({error})
+  console.log({ error });
 
   return buildMessagesByFieldsFromJoiReports(error.details);
 };

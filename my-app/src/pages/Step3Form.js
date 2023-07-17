@@ -49,7 +49,7 @@ const YearlyPickValue = [
 const Step3Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
   const [selectedValueMY, setSelectedValueMY] = useState([]);
-  const [addonValue, setAddonValue] = useState([]);
+  const [addonValue, setAddonValue] = useState(globalState.addonValue || []);
 
   const handleChange = (evt) => {
     const newArr = addonValue;
@@ -77,6 +77,7 @@ const Step3Form = () => {
       setSelectedValueMY(YearlyPickValue);
     }
   }, [addonValue]);
+  console.log(globalState);
 
   return (
     <div className={style.subFormContainer}>
@@ -95,6 +96,9 @@ const Step3Form = () => {
               addonValue.filter((c) => c.title === option.title).length > 0
             }
             info={option}
+            checked={
+              addonValue.filter((c) => c.title === option.title).length > 0
+            }
           />
         ))}
       </div>

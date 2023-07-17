@@ -48,7 +48,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="name"
-            defaultValue={globalState.name}
+            defaultValue={globalState !== undefined ? globalState.name : ""}
             error={
               errors && errors.name && clicked && clicked.name ? true : false
             }
@@ -70,7 +70,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="email"
-            defaultValue={globalState.email}
+            defaultValue={globalState !== undefined ? globalState.email : ""}
             error={
               errors && errors.email && clicked && clicked.email ? true : false
             }
@@ -92,7 +92,7 @@ const Step1Form = () => {
             variant="outlined"
             onChange={handleChange}
             name="phone"
-            defaultValue={globalState.phone}
+            defaultValue={globalState !== undefined ? globalState.phone : ""}
             error={
               errors && errors.phone && clicked && clicked.phone ? true : false
             }
