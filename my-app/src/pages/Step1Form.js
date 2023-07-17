@@ -3,6 +3,8 @@ import style from "./MultiStepForm.module.css";
 
 import { TextField, Typography } from "@mui/material";
 import { GlobalStateContext } from "@/globalContext/globalContext";
+import validate from "../services/validation";
+import { formSchema } from "../services/formSchema";
 
 const Step1Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
@@ -12,8 +14,22 @@ const Step1Form = () => {
       ...globalState,
     };
     newState[name] = value;
+    const errors = validate({ form: newState, schema: formSchema });
+    newState.errors = errors;
     setGlobalState(newState);
   };
+
+  const handleClick = (evt) => {
+    const { name, value } = evt.target;
+    console.log({ name });
+    const newState = {
+      ...globalState,
+    };
+    newState.clicked = newState.clicked || {};
+    newState.clicked[name] = true;
+    setGlobalState(newState);
+  };
+  const { errors, clicked } = {} || globalState;
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
@@ -34,7 +50,16 @@ const Step1Form = () => {
             onChange={handleChange}
             name="name"
             defaultValue={globalState.name}
+            error={
+              errors && errors.name && clicked && clicked.name ? true : false
+            }
+            onClick={handleClick}
           />
+          {clicked && clicked.name && errors && errors.name && (
+            <Typography variant="caption" className={style.error}>
+              {errors.name}
+            </Typography>
+          )}
         </div>
         <div>
           <Typography variant="subtitle2">Email Address</Typography>
@@ -47,7 +72,16 @@ const Step1Form = () => {
             onChange={handleChange}
             name="email"
             defaultValue={globalState.email}
+            error={
+              errors && errors.email && clicked && clicked.email ? true : false
+            }
+            onClick={handleClick}
           />
+          {clicked && clicked.email && errors && errors.email && (
+            <Typography variant="caption" className={style.error}>
+              {errors.email}
+            </Typography>
+          )}
         </div>
         <div>
           <Typography variant="subtitle2">Phone Number</Typography>
@@ -60,7 +94,16 @@ const Step1Form = () => {
             onChange={handleChange}
             name="phone"
             defaultValue={globalState.phone}
+            error={
+              errors && errors.phone && clicked && clicked.phone ? true : false
+            }
+            onClick={handleClick}
           />
+          {clicked && clicked.phone && errors && errors.phone && (
+            <Typography variant="caption" className={style.error}>
+              {errors.phone}
+            </Typography>
+          )}
         </div>
       </div>
     </div>

@@ -1,9 +1,13 @@
+html {
+  height: 100%;
+}
 body {
   background-color: #eff5ff;
   display: flex;
-  padding: 105px 250px;
   justify-content: center;
+  height: 100%;
   align-items: center;
+  margin: 0;
 }
 
 @media (max-width: 500px) {

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -12,6 +12,8 @@ import Step2Form from "./Step2Form";
 import Step3Form from "./Step3Form";
 import Step4Form from "./Step4Form";
 import ThankForm from "./ThankForm";
+import validate from "../services/validation";
+import { formSchema, disableFormButton } from "../services/formSchema";
 import { GlobalStateContext } from "@/globalContext/globalContext";
 
 const steps = [
@@ -34,6 +36,7 @@ const steps = [
 ];
 
 const MultiStepForm = () => {
+  const { globalState, setGlobalState } = useContext(GlobalStateContext);
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const [allCompleted, setAllCompleted] = useState(false);
@@ -72,6 +75,12 @@ const MultiStepForm = () => {
     setAllCompleted(true);
   };
 
+  useEffect(() => {
+    const errors = validate({ form: globalState, schema: formSchema });
+    setGlobalState({ ...globalState, errors });
+  }, []);
+
+  const { errors } = {} || globalState;
   return (
     <div className={style.stepFormContainer}>
       <Stepper
@@ -131,7 +140,11 @@ const MultiStepForm = () => {
                     Confirm
                   </Button>
                 ) : (
-                  <Button className={style.stepNextButton} onClick={handleNext}>
+                  <Button
+                    disabled={disableFormButton(errors)}
+                    className={style.stepNextButton}
+                    onClick={handleNext}
+                  >
                     Next Step
                   </Button>
                 )}

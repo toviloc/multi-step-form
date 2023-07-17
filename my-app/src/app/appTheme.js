@@ -173,9 +173,6 @@ const typography = {
     letterSpacing: "0.09375rem",
     lineHeight: "1rem",
   },
-  MuiStepIcon: {
-    color: "#BEE2FD",
-  },
 };
 
 const initialTheme = createTheme({
@@ -183,6 +180,23 @@ const initialTheme = createTheme({
   palette,
   typography,
   spacing: 16,
+  components: {
+    MuiStepIcon: {
+      styleOverrides: {
+        root: {
+          color: "rgba(0,0,0,0)",
+          border: "1px solid #fff",
+          borderRadius: "50%",
+          "&.Mui-active": {
+            color: "#BEE2FD",
+          },
+          "&.Mui-complete": {
+            color: "#BEE2FD",
+          },
+        },
+      },
+    },
+  },
 });
 
 const appTheme = {
