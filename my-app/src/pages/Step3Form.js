@@ -8,19 +8,19 @@ const MonthlyPickValue = [
   {
     title: "Online service",
     description: "Access to multiplayer games",
-    membership: "+$1/mo",
+    packagePrice: "+$1/mo",
     price: 1,
   },
   {
     title: "Larger storage",
     description: "Extra 1TB of cloud save",
-    membership: "+$2/mo",
+    packagePrice: "+$2/mo",
     price: 2,
   },
   {
     title: "Customizable profile",
     description: "Custom theme on your profile",
-    membership: "+$2/mo",
+    packagePrice: "+$2/mo",
     price: 2,
   },
 ];
@@ -29,27 +29,32 @@ const YearlyPickValue = [
   {
     title: "Online service",
     description: "Access to multiplayer games",
-    membership: "+$10r",
+    packagePrice: "+$10/yr",
     price: 10,
   },
   {
     title: "Larger storage",
     description: "Extra 1TB of cloud save",
-    membership: "+$20/yr",
+    packagePrice: "+$20/yr",
     price: 20,
   },
   {
     title: "Customizable profile",
     description: "Custom theme on your profile",
-    membership: "+$20/yr",
+    packagePrice: "+$20/yr",
     price: 20,
   },
 ];
 
 const Step3Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
+  let defaultAddOnValue = [];
+  if (globalState !== undefined && globalState.addonValue !== undefined) {
+    defaultAddOnValue = globalState.addonValue;
+  }
+  console.log(defaultAddOnValue);
   const [selectedValueMY, setSelectedValueMY] = useState([]);
-  const [addonValue, setAddonValue] = useState([]);
+  const [addonValue, setAddonValue] = useState(defaultAddOnValue);
 
   const handleChange = (evt) => {
     const newArr = addonValue;
@@ -77,13 +82,13 @@ const Step3Form = () => {
       setSelectedValueMY(YearlyPickValue);
     }
   }, [addonValue]);
-
   console.log(globalState);
+
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
         <Typography variant="h4">Pick add-ons</Typography>
-        <Typography variant="body2">
+        <Typography variant="body1">
           Add-ons help enhance your gaming experience.
         </Typography>
       </div>
@@ -96,6 +101,9 @@ const Step3Form = () => {
               addonValue.filter((c) => c.title === option.title).length > 0
             }
             info={option}
+            checked={
+              addonValue.filter((c) => c.title === option.title).length > 0
+            }
           />
         ))}
       </div>

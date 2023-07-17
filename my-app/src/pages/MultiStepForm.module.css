@@ -1,11 +1,16 @@
 .stepFormContainer {
   display: flex;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+  width: 940px;
 }
 .MuiStepConnector-root {
   flex: 0;
 }
 .stepperContainer {
-  width: 20%;
+  width: 274px;
+  height: 568px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,15 +19,16 @@
   background-image: url("../Icons/Oval.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 568px;
   gap: 31px;
   padding: 40px 0 0 32px;
+  margin: 16px 0 16px 16px;
 }
 .formerContainer {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 56px;
 }
 .subFormContainer {
   display: flex;
@@ -30,6 +36,7 @@
   align-items: flex-start;
   width: 70%;
   gap: 35px;
+  height: 80%;
 }
 .title {
   display: flex;
@@ -43,7 +50,56 @@
 }
 .textField {
   width: 100%;
+  border-radius: 8px;
+  border: 1px solid #d6d9e6;
 }
+.textField:hover {
+  border: 1px solid #483eff;
+}
+
+.stepNextButton {
+  border-radius: 8px;
+  background: #022959;
+  width: 123px;
+  height: 48px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.stepNextButton:hover {
+  background: #164a8a;
+}
+.stepNextButton:disabled {
+  background-color: #164a8a;
+  color: #9699aa;
+}
+
+.stepConfirmButton {
+  border-radius: 8px;
+  background: #483eff;
+  width: 123px;
+  height: 48px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.stepConfirmButton:hover {
+  background: #928cff;
+}
+
+.backButton {
+  color: #9699aa;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.backButton:hover {
+  color: #022959;
+}
+
 .radioContainer {
   display: flex;
   gap: 18px;
@@ -67,7 +123,7 @@
 
 .payListContainer {
   padding: 16px 24px 24px 24px;
-  width: 100%;
+  width: 85%;
   border-radius: 8px;
   background: #f8f9ff;
 }
@@ -116,4 +172,115 @@
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.changeLinkContainer {
+  color: #9699aa;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration-line: underline;
+}
+
+.changeLinkContainer:hover {
+  color: #483eff;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  text-decoration-line: underline;
+}
+
+.stepButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.error {
+  color: #c7352e;
+}
+
+@media (max-width: 500px) {
+  .stepFormContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: 0;
+  }
+
+  .stepperContainer {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    display: flex;
+    background-size: cover;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 0;
+    gap: 0;
+    padding: 20px 0 0 0;
+    margin: 0;
+    background-position-y: bottom;
+  }
+
+  .formerContainer {
+    width: 100%;
+    height: 93%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: 7%;
+    position: absolute;
+    margin-top: 0;
+  }
+  .stepButtonContainer {
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 92%;
+    padding: 4%;
+  }
+
+  .stepper,
+  .stepLabel {
+    display: none;
+  }
+
+  .subFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    height: auto;
+    background-color: #fff;
+    gap: 35px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
+
+  .radioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .thankFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: #fff;
+    gap: 35px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
 }

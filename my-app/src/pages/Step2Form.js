@@ -13,21 +13,21 @@ const monthlyOption = [
   {
     icon: ArcadeIcon,
     title: "Arcade",
-    membership: "$9/mo",
+    packagePrice: "$9/mo",
     price: 9,
     freeTrial: "",
   },
   {
     icon: AdvancedIcon,
     title: "Advanced",
-    membership: "$12/mo",
+    packagePrice: "$12/mo",
     price: 12,
     freeTrial: "",
   },
   {
     icon: ProIcon,
     title: "Pro",
-    membership: "$15/mo",
+    packagePrice: "$15/mo",
     price: 15,
     freeTrial: "",
   },
@@ -37,21 +37,21 @@ const yearlyOption = [
   {
     icon: ArcadeIcon,
     title: "Arcade",
-    membership: "$90/yr",
+    packagePrice: "$90/yr",
     price: 90,
     freeTrial: "2 months free",
   },
   {
     icon: AdvancedIcon,
     title: "Advanced",
-    membership: "$120/yr",
+    packagePrice: "$120/yr",
     price: 120,
     freeTrial: "2 months free",
   },
   {
     icon: ProIcon,
     title: "Pro",
-    membership: "$150/yr",
+    packagePrice: "$150/yr",
     price: 150,
     freeTrial: "2 months free",
   },
@@ -100,25 +100,28 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 
 const Step2Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
+  let defaultIsMonthlyValue = true;
+  let defaultSelectedValue = monthlyOption[0];
+  if (globalState !== undefined) {
+    if (globalState.isMonthly !== undefined) {
+      defaultIsMonthlyValue = globalState.isMonthly;
+    }
+    if (globalState.selectedValue !== undefined) {
+      defaultSelectedValue = globalState.selectedValue;
+    }
+  }
 
-  const [isMonthly, setIsMonthly] = useState(true);
-  const [selectedValue, setSelectedValue] = useState(monthlyOption[0]);
+  const [isMonthly, setIsMonthly] = useState(defaultIsMonthlyValue);
+  const [selectedValue, setSelectedValue] = useState(defaultSelectedValue);
   const [selectedOptionMY, setSelectedOptionMY] = useState(monthlyOption);
 
   const handleSwitch = () => {
     setIsMonthly(!isMonthly);
-
     setGlobalState({ ...globalState, isMonthly: !isMonthly });
   };
   const handleClick = (evt) => {
     setSelectedValue(JSON.parse(evt.target.value));
-    console.log(JSON.parse(evt.target.value));
-
-    const newState = { ...globalState, selectedValue };
-    newState["isMonthly"] = isMonthly;
-    setGlobalState(newState);
   };
-
   useEffect(() => {
     if (isMonthly === true) {
       setSelectedOptionMY(monthlyOption);
@@ -133,14 +136,13 @@ const Step2Form = () => {
       isMonthly,
       selectedValue,
     });
-  }, []);
+  }, [selectedValue]);
   console.log(globalState);
-
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
         <Typography variant="h4">Select your plan</Typography>
-        <Typography variant="body2">
+        <Typography variant="body1">
           You have the option of monthly or yearly billing.
         </Typography>
       </div>
@@ -159,14 +161,17 @@ const Step2Form = () => {
         <div className={style.switchContainer}>
           <Typography
             variant="subtitle1"
-            className={isMonthly ? style.selected : style.unselected}
+            className={isMonthly === true ? style.selected : style.unselected}
           >
             Monthly
           </Typography>
-          <AntSwitch onClick={() => handleSwitch()} />
+          <AntSwitch
+            checked={!defaultIsMonthlyValue}
+            onClick={() => handleSwitch()}
+          />
           <Typography
             variant="subtitle1"
-            className={!isMonthly ? style.selected : style.unselected}
+            className={isMonthly === false ? style.selected : style.unselected}
           >
             Yearly
           </Typography>

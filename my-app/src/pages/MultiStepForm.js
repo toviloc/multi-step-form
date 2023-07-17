@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -12,6 +12,9 @@ import Step2Form from "./Step2Form";
 import Step3Form from "./Step3Form";
 import Step4Form from "./Step4Form";
 import ThankForm from "./ThankForm";
+import validate from "../services/validation";
+import { formSchema, disableFormButton } from "../services/formSchema";
+import { GlobalStateContext } from "@/globalContext/globalContext";
 
 const steps = [
   {
@@ -33,10 +36,10 @@ const steps = [
 ];
 
 const MultiStepForm = () => {
+  const { globalState, setGlobalState } = useContext(GlobalStateContext);
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const [allCompleted, setAllCompleted] = useState(false);
-
   const totalSteps = () => {
     return steps.length;
   };
@@ -71,6 +74,12 @@ const MultiStepForm = () => {
     setAllCompleted(true);
   };
 
+  useEffect(() => {
+    const errors = validate({ form: globalState, schema: formSchema });
+    setGlobalState({ ...globalState, errors });
+  }, []);
+
+  const { errors } = {} || globalState;
   return (
     <div className={style.stepFormContainer}>
       <Stepper
@@ -85,6 +94,7 @@ const MultiStepForm = () => {
               <Typography
                 variant="subtitle1"
                 style={{ color: "#ABBCFF", fontSize: "12px" }}
+                className={style.stepLabel}
               >
                 STEP {e.step}
               </Typography>
@@ -106,23 +116,38 @@ const MultiStepForm = () => {
             {activeStep === 1 && <Step2Form />}
             {activeStep === 2 && <Step3Form />}
             {activeStep === 3 && <Step4Form />}
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-              >
-                Go back
-              </Button>
-              {/* <Box sx={{ flex: "1 1 auto" }} /> */}
-              {activeStep === 3 ? (
-                <Button onClick={handleComplete}>Confirm</Button>
-              ) : (
-                <Button onClick={handleNext} sx={{ mr: 1 }}>
-                  Next Step
-                </Button>
-              )}
+            <Box className={style.stepButtonContainer}>
+              <div>
+                {activeStep > 0 ? (
+                  <Button
+                    className={style.backButton}
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                  >
+                    Go back
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div>
+                {activeStep === 3 ? (
+                  <Button
+                    className={style.stepConfirmButton}
+                    onClick={handleComplete}
+                  >
+                    Confirm
+                  </Button>
+                ) : (
+                  <Button
+                    disabled={disableFormButton(errors)}
+                    className={style.stepNextButton}
+                    onClick={handleNext}
+                  >
+                    Next Step
+                  </Button>
+                )}
+              </div>
             </Box>
           </React.Fragment>
         )}

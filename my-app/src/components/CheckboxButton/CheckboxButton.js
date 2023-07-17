@@ -3,14 +3,13 @@ import { Typography, Card, CardContent, Checkbox } from "@mui/material";
 import styles from "./CheckboxButton.module.css";
 
 const CheckboxButton = ({ onChange, selected, info, checked }) => {
-  const { title, description, membership, price } = info;
+  const { title, description, packagePrice, price } = info;
   const value = {
     title,
     description,
-    membership,
+    packagePrice,
     price,
   };
-  console.log(checked);
   return (
     <Card
       className={`${styles["checkbox-methods"]} ${
@@ -18,12 +17,12 @@ const CheckboxButton = ({ onChange, selected, info, checked }) => {
       }`}
     >
       <CardContent className={styles.card_container}>
-        <label htmlFor={`${title}${membership}`} className={styles.card_body}>
+        <label htmlFor={`${title}${packagePrice}`} className={styles.card_body}>
           <div className={styles.selectbox_header}>
             <Checkbox
               className={styles.input}
               type="checkbox"
-              id={`${title}${membership}`}
+              id={`${title}${packagePrice}`}
               name="checkbox-method"
               value={JSON.stringify(value)}
               checked={checked}
@@ -32,11 +31,20 @@ const CheckboxButton = ({ onChange, selected, info, checked }) => {
           </div>
           <div className={styles.checkboxContainer}>
             <div className={styles.selectbox_description}>
-              <Typography variant="body2">{title}</Typography>
+              <Typography variant="subtitle1">{title}</Typography>
               <Typography variant="body2">{description}</Typography>
             </div>
             <div className={styles.selectbox_description}>
-              <Typography variant="body2">{membership}</Typography>
+              <label
+                style={{
+                  fontFamily: "Ubuntu",
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  color: "#483EFF",
+                }}
+              >
+                {packagePrice}
+              </label>
             </div>
           </div>
         </label>
