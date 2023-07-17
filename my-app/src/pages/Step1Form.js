@@ -21,7 +21,6 @@ const Step1Form = () => {
 
   const handleClick = (evt) => {
     const { name, value } = evt.target;
-    console.log({ name });
     const newState = {
       ...globalState,
     };

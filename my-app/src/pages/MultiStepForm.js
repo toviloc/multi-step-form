@@ -40,7 +40,6 @@ const MultiStepForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const [allCompleted, setAllCompleted] = useState(false);
-
   const totalSteps = () => {
     return steps.length;
   };

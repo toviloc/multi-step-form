@@ -1,4 +1,5 @@
 import { createContext } from "react";
+
 const initialState = {
   addonValue: [],
   clicked: {},
@@ -15,4 +16,5 @@ const initialState = {
   },
   isMonthly: true,
 };
+
 export const GlobalStateContext = createContext(initialState);

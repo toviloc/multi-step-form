@@ -10,7 +10,6 @@ const CheckboxButton = ({ onChange, selected, info, checked }) => {
     packagePrice,
     price,
   };
-  console.log(checked);
   return (
     <Card
       className={`${styles["checkbox-methods"]} ${

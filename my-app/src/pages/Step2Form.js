@@ -129,7 +129,6 @@ const Step2Form = () => {
       selectedValue,
     });
   }, [selectedValue]);
-  console.log(globalState);
 
   return (
     <div className={style.subFormContainer}>

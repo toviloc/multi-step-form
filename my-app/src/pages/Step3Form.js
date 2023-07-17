@@ -78,7 +78,6 @@ const Step3Form = () => {
     }
   }, [addonValue]);
 
-  console.log(globalState);
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>

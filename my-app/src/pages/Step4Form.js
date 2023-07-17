@@ -5,13 +5,10 @@ import { GlobalStateContext } from "@/globalContext/globalContext";
 
 const Step4Form = () => {
   const { globalState, setGlobalState } = useContext(GlobalStateContext);
-  const [totalPrice, setTotalPrice] = useState(0);
-  // console.log(globalState);
   let sum = globalState.selectedValue.price;
   globalState.addonValue.forEach((element) => {
     sum += element.price;
   });
-  console.log("sum", sum);
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>
