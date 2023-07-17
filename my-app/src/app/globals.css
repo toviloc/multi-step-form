@@ -5,3 +5,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 500px) {
+  body {
+    margin: 0;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+  }
+}

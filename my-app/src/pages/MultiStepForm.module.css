@@ -11,7 +11,6 @@
 .stepperContainer {
   width: 274px;
   height: 568px;
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -58,13 +57,30 @@
   border: 1px solid #483eff;
 }
 
-.stepButton {
+.stepNextButton {
   border-radius: 8px;
   background: #022959;
   width: 123px;
   height: 48px;
   color: #fff;
   font-weight: 500;
+}
+
+.stepNextButton:hover {
+  background: #164a8a;
+}
+
+.stepConfirmButton {
+  border-radius: 8px;
+  background: #483eff;
+  width: 123px;
+  height: 48px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.stepConfirmButton:hover {
+  background: #928cff;
 }
 
 .backButton {
@@ -78,10 +94,6 @@
 
 .backButton:hover {
   color: #022959;
-}
-
-.stepButton:hover {
-  background: #164a8a;
 }
 
 .radioContainer {
@@ -156,4 +168,100 @@
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.changeLinkContainer {
+  color: #9699aa;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration-line: underline;
+}
+
+.changeLinkContainer:hover {
+  color: #483eff;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  text-decoration-line: underline;
+}
+
+.stepButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 32px;
+  width: 70%;
+}
+
+@media (max-width: 500px) {
+  .stepFormContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: 0;
+  }
+
+  .stepperContainer {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    display: flex;
+    background-size: cover;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 0;
+    gap: 0;
+    padding: 20px 0 0 0;
+    margin: 0;
+  }
+
+  .formerContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-top: 56px; */
+    position: absolute;
+  }
+  .stepButtonContainer {
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-top: 56px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .stepper,
+  .stepLabel {
+    display: none;
+  }
+
+  .subFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    height: 80%;
+    background-color: #fff;
+    gap: 35px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
+
+  .radioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+  }
 }

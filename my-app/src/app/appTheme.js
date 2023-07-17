@@ -173,6 +173,9 @@ const typography = {
     letterSpacing: "0.09375rem",
     lineHeight: "1rem",
   },
+  MuiStepIcon: {
+    color: "#BEE2FD",
+  },
 };
 
 const initialTheme = createTheme({

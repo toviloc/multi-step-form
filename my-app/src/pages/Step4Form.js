@@ -27,7 +27,7 @@ const Step4Form = () => {
               {globalState.selectedValue.title}{" "}
               {globalState.isMonthly ? "(Monthly)" : "(Yearly)"}
             </Typography>
-            <Link>change</Link>
+            <Link className={style.changeLinkContainer}>change</Link>
           </div>
           <div>
             <label

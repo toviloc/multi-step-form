@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Multi Step Form",
@@ -11,9 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        {children}
-      </body>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,500,600,700,800"
+          rel="stylesheet"
+        ></link>
+      </head>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }

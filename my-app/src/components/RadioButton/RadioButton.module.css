@@ -16,7 +16,6 @@
   box-shadow: none;
 }
 
-.courier,
 .radio-methods {
   display: flex;
   flex-direction: column;
@@ -130,18 +129,11 @@
   }
 }
 
-@media (max-width: 768px) {
-  .radio-method {
-    flex-direction: column;
-    text-align: left;
-    justify-content: space-evenly;
-    align-items: unset;
+@media (max-width: 500px) {
+  .card_container,
+  .card_body {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
   }
-
-  .button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1180px) {
 }

@@ -29,7 +29,7 @@ const YearlyPickValue = [
   {
     title: "Online service",
     description: "Access to multiplayer games",
-    packagePrice: "+$10r",
+    packagePrice: "+$10/yr",
     price: 10,
   },
   {

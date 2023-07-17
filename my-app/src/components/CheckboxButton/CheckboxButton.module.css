@@ -84,21 +84,13 @@
   background-color: #ffffff;
 }
 
-@media (max-width: 900px) {
-  .container {
-    width: 50%;
+@media (max-width: 500px) {
+  .card_container,
+  .card_body {
+    padding: 0 !important;
+    display: flex;
+    gap: 16px;
+    /* width: 100%; */
+    align-items: center;
   }
-}
-
-/* ToDo! Remove duplicate css (ex: this rule may be present in AddressInput and  PackageDetails styles) */
-@media (max-width: 768px) {
-  .checkbox-method {
-    flex-direction: column;
-    text-align: left;
-    justify-content: space-evenly;
-    align-items: unset;
-  }
-}
-
-@media (max-width: 1180px) {
 }

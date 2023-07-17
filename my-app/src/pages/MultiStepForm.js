@@ -12,6 +12,7 @@ import Step2Form from "./Step2Form";
 import Step3Form from "./Step3Form";
 import Step4Form from "./Step4Form";
 import ThankForm from "./ThankForm";
+import { GlobalStateContext } from "@/globalContext/globalContext";
 
 const steps = [
   {
@@ -85,6 +86,7 @@ const MultiStepForm = () => {
               <Typography
                 variant="subtitle1"
                 style={{ color: "#ABBCFF", fontSize: "12px" }}
+                className={style.stepLabel}
               >
                 STEP {e.step}
               </Typography>
@@ -106,16 +108,7 @@ const MultiStepForm = () => {
             {activeStep === 1 && <Step2Form />}
             {activeStep === 2 && <Step3Form />}
             {activeStep === 3 && <Step4Form />}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                pt: 2,
-                justifyContent: "space-between",
-                paddingBottom: "32px",
-                width: "70%",
-              }}
-            >
+            <Box className={style.stepButtonContainer}>
               <div>
                 {activeStep > 0 ? (
                   <Button
@@ -131,11 +124,14 @@ const MultiStepForm = () => {
               </div>
               <div>
                 {activeStep === 3 ? (
-                  <Button className={style.stepButton} onClick={handleComplete}>
+                  <Button
+                    className={style.stepConfirmButton}
+                    onClick={handleComplete}
+                  >
                     Confirm
                   </Button>
                 ) : (
-                  <Button className={style.stepButton} onClick={handleNext}>
+                  <Button className={style.stepNextButton} onClick={handleNext}>
                     Next Step
                   </Button>
                 )}
