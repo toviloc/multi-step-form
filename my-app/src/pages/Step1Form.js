@@ -28,7 +28,7 @@ const Step1Form = () => {
     newState.clicked[name] = true;
     setGlobalState(newState);
   };
-  const { errors, clicked } = {} || globalState;
+  const { errors, clicked } = globalState || {};
   return (
     <div className={style.subFormContainer}>
       <div className={style.title}>

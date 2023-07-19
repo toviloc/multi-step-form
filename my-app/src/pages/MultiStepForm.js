@@ -79,7 +79,7 @@ const MultiStepForm = () => {
     setGlobalState({ ...globalState, errors });
   }, []);
 
-  const { errors } = {} || globalState;
+  const { errors } = globalState || {};
   return (
     <div className={style.stepFormContainer}>
       <Stepper

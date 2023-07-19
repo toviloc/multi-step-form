@@ -36,7 +36,5 @@ export default ({ form, schema }) => {
     return {};
   }
 
-  console.log({ error });
-
   return buildMessagesByFieldsFromJoiReports(error.details);
 };
